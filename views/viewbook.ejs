@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+    content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/view.css">
+    <title>BOOKS</title>
+</head>
+<body>
+    <div class="container">
+        <div class="heading"><h1>BOOKS AVAILABLE</h1></div>
+        <div class="main"> 
+            <form action="/viewbook" method="get">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name of Book</th>
+                            <th>Stream</th>
+                            <th>Author</th>
+                            <th>No. of Books</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i of books) { %>
+                            <tr>
+                                <td><%= i.book_name %></td>
+                                <td><%= i.stream%></td>
+                                <td><%= i.author%></td>
+                                <td><%= i.num%></td>
+                            </tr>
+                        <% } %>
+             
+                    </tbody>
+                    
+                </table>
+            </form>
+        </div>
+    </div>   
+ </Body>   

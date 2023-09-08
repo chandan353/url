@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+    content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/view.css">
+    <title>Issue</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div class="heading"><h1> Select   Book</h1></div>
+            <div class="main">
+                <form action="/selbook" method="post">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name of Book</th>
+                                <th>Stream</th>
+                                <th>Author</th>
+                                <th>No. of books available</th>
+                                <th>Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (let i of data2) { %>
+                                <tr>
+                                
+                                    <td><%= i.book_name %></td>
+                                    <td><%= i.stream%></td>
+                                    <td><%= i.author%></td>
+                                    <td><%= i.num%></td>
+                                    <td>
+                                        <input type="checkbox" name="selectedBooks" value="<%= i._id %>">
+                                    </td>
+                                </tr>
+                            <% } %>
+             
+                        </tbody>
+                    
+                    </table>
+                    <button type="submit">Next</button>
+    
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+
