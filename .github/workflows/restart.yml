@@ -1,0 +1,15 @@
+name: restart
+on:[pull]
+
+jobs: 
+  restart-server:
+    runs-on: ubuntu-latest
+
+    steps:
+      -name: Checkout Code
+      uses: actions/checkout@v2
+
+      -name: restart-server
+      run:|
+        ssh -i chandan.pem ubuntu@54.89.130.30
+      
