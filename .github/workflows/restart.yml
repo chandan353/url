@@ -33,6 +33,7 @@ jobs:
       - name: Server Restart
         run: |
           ssh -i ~/.ssh/id_rsa ubuntu@54.130.30  
+          cd url
           git pull origin master   
 
         env:
