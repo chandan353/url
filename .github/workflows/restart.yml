@@ -26,15 +26,16 @@ jobs:
           chmod 644 ~/.ssh/known_hosts
 
           # command to restart
-
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Server Restart
-        run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@54.130.30  
+          sh -i ~/.ssh/id_rsa ubuntu@54.130.30  
           cd url
-          git pull origin master   
+          git pull origin master 
 
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # - name: Server Restart
+        # run: |
+          # s  
+
+        # env:
+          # SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
