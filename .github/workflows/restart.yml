@@ -15,6 +15,10 @@ jobs:
 
       - name: Deploy to Server
         run: |
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 54.89.130.30 >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
           ssh ubuntu@54.89.130.30 
 
         env:
