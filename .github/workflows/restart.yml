@@ -15,6 +15,7 @@ jobs:
 
       - name: SSH Key Setup
         run: |
+          mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/key.pem
           
           chmod 600 ~/key.pem
