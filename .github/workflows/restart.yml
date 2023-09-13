@@ -15,16 +15,13 @@ jobs:
 
       - name: SSH Key Setup
         run: |
-          mkdir ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          echo "$SSH_PRIVATE_KEY" > ~/key.pem
           
-          # Set appropriate permissions on the SSH key
-          chmod 600 ~/.ssh/id_rsa
+          chmod 600 ~/key.pem
           
-          # Add your server's host key to known_hosts
           ssh-keyscan -H 54.89.130.30 >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_rsa ubuntu@54.89.130.30 "cd /tmp && git clone https://github.com/chandan353/url/ && cd url && git pull origin master" 
+          ssh -i ~/key.pem ubuntu@54.89.130.30 "whoami"
          
           
 
@@ -32,7 +29,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # - name: Server Restart
-      #   run: |
+      #   run: |ssh -i ~/.ssh/id_rsa ubuntu@54.89.130.30 "cd /tmp && git clone https://github.com/chandan353/url/ && cd url && git pull origin master" 
            
 
       #   env:
