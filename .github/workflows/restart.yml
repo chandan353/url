@@ -13,9 +13,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy to Server
-        run: |
-          ssh ubuntu@54.89.130.30
 
-        env:
-           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
