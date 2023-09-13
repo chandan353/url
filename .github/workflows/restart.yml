@@ -29,7 +29,7 @@ jobs:
 
       - name: Server Restart
         run: |
-          ssh -i ~/key.pem ubuntu@54.89.130.30 "cd /tmp && git clone https://github.com/chandan353/url && cd url && git pull origin master" 
+          ssh -i ~/key.pem ubuntu@54.89.130.30 "cd /home/ubuntu/url && git pull && systemctl restart url" 
            
 
         env:
