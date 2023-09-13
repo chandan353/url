@@ -26,7 +26,7 @@ jobs:
           chmod 644 ~/.ssh/known_hosts
 
           # command to restart
-          sh -i ~/.ssh/id_rsa ubuntu@54.130.30  
+          ssh -i ~/.ssh/id_rsa ubuntu@54.130.30  
           cd url
           git pull origin master 
 
