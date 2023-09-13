@@ -24,16 +24,16 @@ jobs:
           # Add your server's host key to known_hosts
           ssh-keyscan -H 54.89.130.30 >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
-
-          
-
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Server Restart
-        run: |
           ssh -i ~/.ssh/id_rsa ubuntu@54.89.130.30 "cd /tmp && git clone https://github.com/chandan353/url/ && cd url && git pull origin master" 
+         
           
 
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # - name: Server Restart
+      #   run: |
+           
+
+      #   env:
+      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
