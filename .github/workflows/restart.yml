@@ -1,15 +1,21 @@
-name: restart
-on:[pull]
+name: Deploy to Server
 
-jobs: 
-  restart-server:
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      -name: Checkout Code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      -name: restart-server
-      run:|
-        ssh -i chandan.pem ubuntu@54.89.130.30
-      
+      - name: Deploy to Server
+        run: |
+          ssh ubuntu@54.89.130.30 
+
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
