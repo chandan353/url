@@ -15,7 +15,7 @@ jobs:
 
       - name: SSH Key Setup
         run: |
-          mkdir ~.ssh
+          mkdir ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           
           # Set appropriate permissions on the SSH key
