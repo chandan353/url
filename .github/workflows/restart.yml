@@ -19,7 +19,7 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 54.89.130.30 >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
-          ssh ubuntu@54.89.130.30 
+          ssh ubuntu@54.89.130.30 && git pull origin master
 
         env:
            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
