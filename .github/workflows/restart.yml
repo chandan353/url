@@ -15,7 +15,7 @@ jobs:
 
       - name: SSH Key Setup
         run: |
-          mkdir .ssh
+          mkdir ~.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           
           # Set appropriate permissions on the SSH key
@@ -24,5 +24,8 @@ jobs:
           # Add your server's host key to known_hosts
           ssh-keyscan -H 54.89.130.30 >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
+
+          # command to restart
+          ssh ubuntu@54.130.30
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
