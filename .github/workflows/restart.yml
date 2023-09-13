@@ -32,7 +32,7 @@ jobs:
 
       - name: Server Restart
         run: |
-          ssh ubuntu@54.130.30 "cd /tmp && git clone https://github.dev/chandan353/url/ && cd url && git pull origin master" 
+          ssh ubuntu@54.130.30
           
 
         env:
