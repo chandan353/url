@@ -3,7 +3,8 @@ models/Kitten.js
 models/student.js
 models.tsk.js
 
-
+node_modules
+.env
 
 public/images
 public/javascripts
