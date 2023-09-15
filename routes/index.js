@@ -5,7 +5,7 @@ var router = express.Router()
 router.get('/lms',function(req,res){
   res.render('index')
 })
-router.post('/selection',(req,res) => {
+router.post('lms/selection',(req,res) => {
   const selectedOption = req.body.selection;
 
   switch(selectedOption){
