@@ -5,7 +5,7 @@ var router = express.Router()
 router.get('/lms',function(req,res){
   res.render('index')
 })
-router.post('lms/selection',(req,res) => {
+router.post('/selection',(req,res) => {
   const selectedOption = req.body.selection;
 
   switch(selectedOption){
@@ -80,11 +80,11 @@ router.post('lms/newbook',async function(req,res) {
       res.send(htmlResponse);
   });
 
-router.get('lms/viewbook',async function(req, res)  {
+router.get('/viewbook',async function(req, res)  {
   const books = await Book.find({})
   res.render('viewbook',{books: books })
   });
-router.get('lms/viewstd',async function(req, res)  {
+router.get('/viewstd',async function(req, res)  {
   const student1 = await Students.find({})
   res.render('viewstd',{student1: student1 })
   });
@@ -94,7 +94,7 @@ router.get('lms/showbook',async function(req, res){
   res.render('issue',{data2: data2 })
   });
 
-  router.post('lms/selbook', async function (req, res) {
+  router.post('/selbook', async function (req, res) {
     const selectedBooks = req.body.selectedBooks;
     const selectedBookIds = Array.isArray(selectedBooks) ? selectedBooks : [selectedBooks];
     for (const bookId of selectedBookIds) {
@@ -107,7 +107,7 @@ router.get('lms/showbook',async function(req, res){
     res.redirect('lms/showstd');
   });
   
-  router.get('lms/showstd',async function(req,res){
+  router.get('/showstd',async function(req,res){
     const student2 = await Students.find({})
     res.render('showstd',{student2:student2})
   });
