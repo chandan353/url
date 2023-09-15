@@ -16,13 +16,13 @@ router.post('/selection',(req,res) => {
       res.render('newbook');
       break;
     case 'View Stock Of Books':
-      res.redirect('lms/viewbook');
+      res.redirect('/viewbook');
       break;
     case "Issue":
-      res.redirect('lms/showbook');
+      res.redirect('/showbook');
       break;
     case 'View Registered Students':
-      res.redirect('lms/viewstd');
+      res.redirect('/viewstd');
       break;
 
 
