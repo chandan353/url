@@ -2,7 +2,7 @@ var express = require('express')
 const Students = require('../models/student')
 const Book = require('../models/book')
 var router = express.Router()
-router.get('/',function(req,res){
+router.get('/lms',function(req,res){
   res.render('index')
 })
 router.post('/selection',(req,res) => {
