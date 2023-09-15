@@ -16,13 +16,13 @@ router.post('lms/selection',(req,res) => {
       res.render('newbook');
       break;
     case 'View Stock Of Books':
-      res.redirect('viewbook');
+      res.redirect('lms/viewbook');
       break;
     case "Issue":
-      res.redirect('showbook');
+      res.redirect('lms/showbook');
       break;
     case 'View Registered Students':
-      res.redirect('viewstd');
+      res.redirect('lms/viewstd');
       break;
 
 
@@ -33,7 +33,7 @@ router.post('lms/selection',(req,res) => {
   
 });
 
-router.post('/newstd',async function(req,res) {
+router.post('lms/newstd',async function(req,res) {
   const data = await Students.create({
     name:req.body.std_name,
     course:req.body.course
@@ -55,7 +55,7 @@ router.post('/newstd',async function(req,res) {
       res.send(htmlResponse);
   });
 
-router.post('/newbook',async function(req,res) {
+router.post('lms/newbook',async function(req,res) {
   const data1 = await Book.create({
     book_name:req.body.b_name,
     stream:req.body.stream,
@@ -80,21 +80,21 @@ router.post('/newbook',async function(req,res) {
       res.send(htmlResponse);
   });
 
-router.get('/viewbook',async function(req, res)  {
+router.get('lms/viewbook',async function(req, res)  {
   const books = await Book.find({})
   res.render('viewbook',{books: books })
   });
-router.get('/viewstd',async function(req, res)  {
+router.get('lms/viewstd',async function(req, res)  {
   const student1 = await Students.find({})
   res.render('viewstd',{student1: student1 })
   });
 
-router.get('/showbook',async function(req, res){
+router.get('lms/showbook',async function(req, res){
   const data2 = await Book.find({})
   res.render('issue',{data2: data2 })
   });
 
-  router.post('/selbook', async function (req, res) {
+  router.post('lms/selbook', async function (req, res) {
     const selectedBooks = req.body.selectedBooks;
     const selectedBookIds = Array.isArray(selectedBooks) ? selectedBooks : [selectedBooks];
     for (const bookId of selectedBookIds) {
@@ -104,10 +104,10 @@ router.get('/showbook',async function(req, res){
         await selbook.save();
       }
     }
-    res.redirect('/showstd');
+    res.redirect('lms/showstd');
   });
   
-  router.get('/showstd',async function(req,res){
+  router.get('lms/showstd',async function(req,res){
     const student2 = await Students.find({})
     res.render('showstd',{student2:student2})
   });
