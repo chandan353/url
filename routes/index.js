@@ -33,7 +33,7 @@ router.post('/selection',(req,res) => {
   
 });
 
-router.post('lms/newstd',async function(req,res) {
+router.post('/newstd',async function(req,res) {
   const data = await Students.create({
     name:req.body.std_name,
     course:req.body.course
