@@ -22,7 +22,7 @@ router.post('/selection',(req,res) => {
       res.redirect('/showbook');
       break;
     case 'View Registered Students':
-      res.redirect('lms/viewstd');
+      res.redirect('/viewstd');
       break;
 
 
